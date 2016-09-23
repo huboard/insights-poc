@@ -11,6 +11,7 @@ end
 
 #Load Lib
 require_relative 'lib/lib'
+Configuration::ROOT = Dir.pwd
 
 #Load Scripts
 Dir.glob('scripts/**/*.thor') do |f|
