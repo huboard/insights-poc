@@ -12,7 +12,7 @@ module Enrich
       issues.each do |issue|
         repo_name = repo_name issue
         events = OAuth::GitHub.client.repos(repo_name).issues(issue['number']).events
-        issue["events"] = events
+        issue["events"] = events.map(&:to_hash)
       end
 
       output = Object.const_get("Output::To#{options[:format]}")
@@ -34,7 +34,7 @@ module Enrich
       end
 
       def options_for_json_write
-        {'path' => 'issues/enriched_issues'}
+        {'path' => 'enriched_issues'}
       end
     end
   end
