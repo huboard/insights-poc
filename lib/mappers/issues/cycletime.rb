@@ -2,7 +2,7 @@ require 'date'
 
 module Mappers
   module Issues
-    class Leadtime
+    class Cycletime 
       #TODO Refactor as DSL style mapper, for POC this mess is fine though
 
       def self.map(issues)
@@ -37,7 +37,7 @@ module Mappers
       end
 
       def self.task_start_label
-        ENV['LEADTIME_START_LABEL'] || 'Next Release'
+        ENV['LEADTIME_START_LABEL'] || 'Working'
       end
     end
   end
